@@ -1,5 +1,5 @@
 # 
-setCountries = {'Argentina','Colombia','Mexico'}
+setCountries = {'Argentina','Colombia','Mexico','Argentina'}
 
 print(setCountries)
 print(type(setCountries))
