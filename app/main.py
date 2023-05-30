@@ -1,11 +1,5 @@
 import utils
 
-keys, values = utils.getPopulation()
-print(keys, values)
-
-""" print(utils.name) #llamo a mod desde este archivo. """
-
-
 countriesToFilter = [
     {
         'Country' : 'Colombia',
@@ -21,16 +15,27 @@ countriesToFilter = [
     }
 ]
 
+def run():
+    keys, values = utils.getPopulation()
+    print(keys, values)
 
-pais = input('ingrese el país ==> ')
+    """ print(utils.name) #llamo a mod desde este archivo. """
 
-resultInput = utils.popByCountry(countriesToFilter,pais)
 
-print(resultInput)
-print('--------------------------------------------------------') 
+
+
+    pais = input('ingrese el país ==> ')
+
+    resultInput = utils.popByCountry(countriesToFilter,pais)
+
+    print(resultInput)
+    print('--------------------------------------------------------') 
 """ result = utils.popByCountry(countriesToFilter,'Argentina')
 print('---Filtado---')
 print(result)
 
 result = utils.popByCountry(countriesToFilter,'Chile')
 print(result) """
+
+if __name__ == '__main__':
+    run()
