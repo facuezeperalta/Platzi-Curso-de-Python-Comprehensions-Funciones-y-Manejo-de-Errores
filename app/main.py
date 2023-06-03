@@ -1,34 +1,23 @@
 import utils
+import readCSV
+import charts
 
-countriesToFilter = [
-    {
-        'Country' : 'Colombia',
-        'population' : 500,
-    },
-    {
-        'Country' : 'Argentina',
-        'population' : 1500
-    },
-    {
-        'Country' : 'Chile',
-        'population' : 350
-    }
-]
 
 def run():
-    keys, values = utils.getPopulation()
-    print(keys, values)
+    data = readCSV.readCsv('./world_population.csv')
+    
+    country = input('ingrese el país ==> ')
+    
+    resultInput = utils.popByCountry(data,country)
 
+    if len(resultInput) > 0:
+        country = resultInput[0]
+        labels, values = utils.getPopulation(country)
+        charts.generateBarChart(labels, values)
+
+    else: print('NO se ha encontrado el pais.')
     """ print(utils.name) #llamo a mod desde este archivo. """
-
-
-
-
-    pais = input('ingrese el país ==> ')
-
-    resultInput = utils.popByCountry(countriesToFilter,pais)
-
-    print(resultInput)
+    
     print('--------------------------------------------------------') 
 """ result = utils.popByCountry(countriesToFilter,'Argentina')
 print('---Filtado---')
